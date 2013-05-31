@@ -1,0 +1,3 @@
+(function($) {
+  $('.pf').paperfold();
+})(jQuery);

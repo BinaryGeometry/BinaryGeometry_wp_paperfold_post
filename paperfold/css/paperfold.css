@@ -1,0 +1,205 @@
+body {
+	background: #999 url('low_contrast_linen.png') 0 0 repeat scroll;
+	font: 87.45%/1.4 "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Collapsible item container */
+.pf {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0 25px;
+}
+
+.pf__item {
+	position: relative;
+	border-top: 0 none;
+	padding: 0;
+}
+
+.pf__item_collapsed .pf__full,
+.pf__item_expanded .pf__short {
+	display: none;
+}
+
+.pf__item:first-child,
+.pf__item_first {
+	border-top: 1px solid #ccc;
+}
+
+.pf__item:last-child,
+.pf__item_last {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.pf__item .pf__reducer {
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	padding: 0 40px 2em 40px;
+}
+
+/* Show the background of expandable area for incompatible browsers */
+.pf__full .pf__reducer {
+	background: #fff;
+}
+
+/* But hide it from compatible ones */
+.pf__item_visible .pf__reducer {
+	background: none;
+}
+
+.pf__short .pf__reducer {
+	padding-top: 30px;
+	background: #fff;
+	-webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+	-ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+.pf__reducer p {
+	margin-top: 0;
+}
+
+.pf__trigger {
+	position: absolute;
+	margin-top: -2.2em;
+	padding-left: 240px;
+}
+
+.pf__trigger-text {
+	border-bottom: 1px dotted;
+	cursor: pointer;
+}
+
+.pf__trigger_collapsed .pf__trigger-text_expanded,
+.pf__trigger_expanded .pf__trigger-text_collapsed {
+	display: none;
+}
+
+.pf__trigger_expanded .pf__trigger-text_expanded,
+.pf__trigger_collapsed .pf__trigger-text_collapsed {
+	display: inline;
+}
+
+/* Paperfold */
+.pf__item .pf__full {
+	position: relative;
+	overflow: hidden; /* important for big folds but bad for demo because it cuts of the depth in other perspectives */
+	transform-style: preserve-3d;
+}
+
+.pf__item_ready,
+.pf__item_ready .pf__full {
+	display: block;
+}
+
+/* 
+	every fold is holding two identical divs: top and bottom 
+	the children divs are positioned relative to it
+	the slice grows from zero to 1/n of the elements height (n = number of slices)
+*/
+
+/* 
+	easing functions
+	================
+	
+	kappa = 0.5522847498307936
+	- half circle (low): cubic-bezier(0.552, 0.000, 1.000, 0.448)
+	- half circle (top): cubic-bezier(0.000, 0.552, 0.448, 1.000) 
+	- ease cubic-bezier(0.250, 0.100, 0.250, 1.000)
+	- inverse-ease cubic-bezier(0.750, 0.000, 0.750, 0.900) 
+	
+	- self tested cubic-bezier(0.500, 0.200, 0.900, 0.820)
+*/
+
+.pf__original {
+	position: absolute;
+	display: none;
+	top: 0;
+	background: #fff;
+}
+
+.pf__original .pf__reducer {
+	font-size: 99.99%;
+}
+
+.pf__item .pf__fold {
+	height: 0;
+	transform-style: preserve-3d;
+	perspective: 400px;
+}
+
+.pf__item_ready .pf__fold {
+	transition: height 500ms linear;
+}
+
+/* 
+	they are the two folds - top and bottom
+*/
+.pf__item .pf__top,
+.pf__item .pf__bottom {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	transform-origin: top;
+	transform: rotateX(-90deg);
+	background-image: linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.55) 3%, rgba(255,255,255,0.5) 66%, rgba(255,255,255,0));
+	background-color: #505455; /* hsl(192,6,33) */
+}
+
+.pf__item .pf__fold .pf__wrapper {
+	position: relative;
+	height: 100%;
+}
+
+.pf__item_ready .pf__top,
+.pf__item_ready .pf__bottom {
+	/* closing transition */
+	
+	transition: transform 800ms cubic-bezier(0.000, 0.450, 1.000, 0.950), background-color 800ms ease-in, opacity 300ms linear;
+}
+
+.pf__item .pf__top {
+	z-index: 10;
+}
+
+.pf__item_ready .pf__bottom {
+	bottom: 0;
+	position: absolute;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.5) 34%, rgba(255,255,255,.95) 97%, rgba(255,255,255,1));
+	background-image: -ms-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.5) 34%, rgba(255,255,255,.95) 97%, rgba(255,255,255,1));
+	background-image: linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.5) 34%, rgba(255,255,255,.95) 97%, rgba(255,255,255,1));
+	transform-origin: bottom;
+	transform: rotateX(90deg);
+	z-index: 11;
+}
+
+.pf__item_visible .pf__top,
+.pf__item_visible .pf__bottom {
+	transform: rotateX(0);
+	opacity: 1;
+	background-color: white;
+	/* opening transition */
+	transition: transform 500ms cubic-bezier(0.000, 0.050, 1.000, 0.550), background-color 500ms ease-out, opacity 300ms linear;
+}
+
+/* inner holder for the content */
+.pf__item .pf__fold .pf__inner {
+	position: absolute;
+}
+
+.pf__item_ready .pf__full,
+.pf__item_ready .pf__fold,
+.pf__item_ready .pf__top, .pf__item_ready .pf__bottom,
+.pf__item_ready .pf__inner {
+	transition-duration: 400ms;
+}
+
+.pf_no-transition .pf__full,
+.pf_no-transition .pf__fold,
+.pf_no-transition .pf__top, .pf_no-transition .pf__bottom,
+.pf_no-transition .pf__inner {
+	transition-duration: 0ms;
+}

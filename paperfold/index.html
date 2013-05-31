@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie7 lte-ie7 lt-ie8 lte-ie8 lte-ie9 lt-ie9"> <![endif]-->
+<!--[if IE 7]>    <html class="lte-ie7 lt-ie8 lte-ie8 lte-ie9 lt-ie9"> <![endif]-->
+<!--[if IE 8]>    <html class="lte-ie8 lte-ie9 lt-ie9"> <![endif]-->
+<!--[if IE 9]>    <html class="lte-ie9 ie9"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>jQuery paperfold plugin</title>
+
+		<link rel="stylesheet" href="css/paperfold.css" />
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+		<script type="text/javascript" src="js/prefixfree.js"></script>
+		<script type="text/javascript" src="js/modernizr.paperfold.js"></script>
+		<script type="text/javascript" src="js/jquery.paperfold.js"></script>
+		
+		<script type="text/javascript">
+			$(function () {
+				$('.pf').paperfold({
+					duration : 500,
+					CSSAnimation : false,
+					useOriginal : true
+				});	
+			});
+		</script>
+	</head>
+	<body>
+		<div class="pf">
+			<div class="pf__item pf__item_collapsed">
+				<div class="pf__short">
+					<div class="pf__reducer">
+						<p>
+							Nuka-Cola was the most popular soft drink in the world before the Great War. After the War, many bottles of this pre-War favorite still survive and Nuka-Cola remains the most popular soft drink of the post-apocalyptic world. 
+						</p>
+					</div>
+				</div>
+
+				<div class="pf__trigger pf__trigger_collapsed">
+					<span class="pf__trigger-text pf__trigger-text_collapsed">Expand &rarr;</span>
+					<span class="pf__trigger-text pf__trigger-text_expanded">&larr; Collapse</span>
+				</div>
+
+				<div class="pf__full">
+					<div class="pf__reducer">
+						<p>Nuka-Cola was invented in 2044 by John Caleb-Bradberton. Its unique taste gained widespread popularity quickly, ending with it becoming the most popular soft drink in the United States with an extremely dedicated following. The widely known Dazzling Blue bottle color was adopted as standard in 2052, after market research programs indicated that the blue color was the favorite in 86 people out of a hundred polled.</p>
+
+						<p>The ingredients of Nuka-Cola are: carbonated water, caramel color, aspartame, phosphoric acid, potassium benzoate (to protect taste), natural flavors, citric acid, and caffeine. What gives it the unique flavor is the essence of seventeen different fruits mixed in just the right proportion to give the beverage its trademark taste. Some versions of the drink also include vitaminerals and health tonics. During the Great Passion Fruit Famine of 2044, people actually noticed the taste difference when the recipe was changed. </p>
+
+						<p>By 2067, vending machines with ice cold Nuka-Cola could be found on virtually every street in America.</p>  
+					</div>
+				</div>
+			</div>
+
+			<div class="pf__item pf__item_collapsed">
+				<div class="pf__short">
+					<div class="pf__reducer">
+						<p>
+							If-and the thing is wildly possible-the charge of writing nonsense were ever brought against the author of this brief but instructive poem, it would be based , I feel convinced, on the line (in Fit the Second)
+						</p>
+						<p>"<a href="http://www.literature.org/authors/carroll-lewis/the-hunting-of-the-snark/chapter-02.html#BowSprit">Then the bowsprit got mixed with the rudder sometimes.</a>"</p>
+					</div>
+				</div>
+
+				<div class="pf__trigger pf__trigger_collapsed">
+					<span class="pf__trigger-text pf__trigger-text_collapsed">Expand &rarr;</span>
+					<span class="pf__trigger-text pf__trigger-text_expanded">&larr; Collapse</span>
+				</div>
+
+				<div class="pf__full">
+					<div class="pf__reducer">
+						<p>In view of this painful possibility, I will not (as I might) appeal indignantly to my other writings as a proof that I am incapable of such a deed: I will not (as I might) point to the strong moral purpose of this poem itself, to the arithmetical principles so cautiously inculcated in it, or to its noble teachings in Natural History--I will take the more prosaic course of simply explaining how it happened.</p>
+
+						<p>The Bellman, who was almost morbidly sensitive about appearances, used to have the bowsprit unshipped once or twice a week to be revarnished, and it more than once happened, when the time came for replacing it, that no one on board could remember which end of the ship it belonged to. They knew it was not of the slightest use to appeal to the Bellman about it-- he would only refer to his Naval Code, and read out in pathetic tones Admiralty Instructions which none of them had ever been able to understand-- so it generally ended in its being fastened on, anyhow, across the rudder. The helmsman used to stand by with tears in his eyes; he knew it was all wrong, but alas! Rule 42 of the Code, "No one shall speak to the Man at the Helm," had been completed by the Bellman himself with the words "and the Man at the Helm shall speak to no one." So remonstrance was impossible, and no steering could be done till the next varnishing day. During these bewildering intervals the ship usually sailed backwards.</p>
+
+						<p>As this poem is to some extent connected with the lay of the Jabberwock, let me take this opportunity of answering a question that has often been asked me, how to pronounce "slithy toves." The "i" in "slithy" is long, as in "writhe"; and "toves" is pronounced so as to rhyme with "groves." Again, the first "o" in "borogoves" is pronounced like the "o" in "borrow." I have heard people try to give it the sound of the "o" in "worry. Such is Human Perversity.</p>  
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>
