@@ -1,12 +1,3 @@
-<?php
-/*
-Plugin Name: Binary Paperfolded Posts
-Plugin URI: http://www.plugins.binarygeometry.net/
-Version: 1.0.0
-Author: Andrew MacKay
-Description: Adds paperfold functionality as Wordpress posts snippet. Made possible by the third party code developed at: https://developer.mozilla.org/en-US/demos/detail/paperfold-css..
-*/
-?>
 <?php $folding_post_query = new WP_Query('showposts=1'); ?>
 <?php while ($folding_post_query->have_posts()) : $folding_post_query->the_post(); ?>
 <div class="pf"><article class="paperfold-post">
