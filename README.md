@@ -1,4 +1,4 @@
-A simple way to add the cool Paperfold CSS effect to your Wordpress themes.
+A simple way to add the cool Paperfold CSS (https://developer.mozilla.org/en-US/demos/detail/paperfold-css/launcheffect) to your Wordpress themes.
 
 Once you have installed the plugin from your Wordpress admin panel you will need to add the following call 
 in your template file:
@@ -25,3 +25,6 @@ title. The paperfold-single-post.php file is where you want to look to add your 
 
 Likewise the css can be found /paperfold/css/paperfold.css . There is also an article.paperfold-post wrapper you can use in your theme stylesheet.
 
+Thanks
+
+Made possible by the work of Uncle Norton (https://github.com/unclenorton/jquery.paperfold) & MrFlix (https://developer.mozilla.org/en-US/profiles/mrflix) 
